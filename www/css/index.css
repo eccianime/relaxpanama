@@ -1,0 +1,251 @@
+/*
+	COLORES
+
+	VERDE
+	rgb(57,213,44)
+		
+	AZUL
+	rgb(37,54,69)
+
+*/
+
+@font-face{
+	font-family: 'Ubuntu Regular';
+	src: url("../fonts/Ubuntu-R.ttf");
+}
+
+*{
+	font-family: "Ubuntu Regular";
+}
+
+.loader{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+.logo{
+	width: 100%;
+}
+
+.ui-header{
+	background-color: rgb(37,54,69);
+	border-bottom: 5px solid rgb(57,213,44);
+}
+
+body{
+	background-color: rgb(37,54,69);
+}
+
+.fondo-normal{
+	background-color: rgb(230,230,230);
+}
+
+.dashboard p{
+	color: rgb(37,54,69);
+	font-weight: bold;
+}
+
+.text-center{
+	text-align: center;
+}
+
+.img-responsive{
+	width: 100%;
+}
+
+.logo-bienvenido{
+	width: 60%;
+	margin: 20px;
+}
+
+.ui-state-default{
+	border-radius: 5px 5px 0px 0px;
+	background-color: white;
+}
+
+.ui-state-active{
+	background-color: rgb(57,213,44);
+}
+
+.ui-state-default > .ui-tabs-anchor{
+	color: rgb(57,213,44);	
+}
+
+.ui-state-active > .ui-tabs-anchor{
+	color: white;
+}
+
+.ui-tabs-anchor{
+	border: none;
+	font-size: 11.5px !important;
+	font-weight: lighter;
+}
+
+.ui-block-a{
+	border-right: 2px solid rgb(37,54,69);
+}
+
+.ui-block-b{
+	border-left: 2px solid rgb(37,54,69);
+}
+
+.ui-tabs-panel{
+	background-color: rgb(57,213,44);
+	border-radius: 0px 0px 20px 20px;
+}
+
+.ui-input-text{
+	border-color: #aaa;
+}
+
+.ui-input-text{
+	background-color: white;
+	border-color: #aaa;
+}
+
+.ui-input-text input::placeholder, 
+.ui-input-search input::placeholder, 
+textarea.ui-input-text::placeholder {
+	color: #333;
+	font-weight: bold;
+}
+
+.boton-log{
+	background-color: white;
+	color: rgb(57,213,44);
+	border-radius: 5px;
+
+/*recomendacion para el boton de log in*/
+	/*width: 35%;			
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 30px;*/
+}
+
+.ui-tabs{
+	margin: 10px;
+}
+
+.ui-tabs-panel .ui-content{
+	padding: 1em;
+}
+
+.sobrepiso-20{
+	position: absolute;
+	bottom: 20px;
+}
+
+/*----------------- DASHBOARD -------------------*/
+
+.ui-header .ui-btn-right{
+	color: white;
+	border: none;
+	font-size: 30px;
+	padding: 10px;
+}
+
+.dashboard .ui-content{
+	padding: 1em 2em;
+}
+
+.cartera, .boton-inferior{
+	position: relative;
+	top: -60px;
+}
+
+.cartera{
+	background-color: white;
+	border-radius: 20px;
+	padding: 20px;
+}
+
+.punteado{
+	padding: 10px;
+	border: 5px dashed rgb(57,213,44);
+	height: 95%;
+	border-radius: 20px;
+	border-right-color: transparent;
+}
+
+.disponibles{
+	position: relative;
+	text-align: center;
+	top: -130px;
+	height: 0px;
+	color: white;
+	font-weight: bold;
+	font-size: xx-large;
+}
+
+.row{
+	box-sizing:border-box;
+	display:-webkit-flex;
+	display:-ms-flexbox;
+	display:flex;
+	-webkit-flex:0 1 auto;
+	-ms-flex:0 1 auto;
+	flex:0 1 auto;
+	-webkit-flex-direction:row;
+	-ms-flex-direction:row;
+	flex-direction:row;
+	-webkit-flex-wrap:wrap;
+	-ms-flex-wrap:wrap;
+	flex-wrap:wrap;
+	margin-right:-.5rem;
+	margin-left:-.5rem
+}
+
+.xs-6{
+	-webkit-flex-basis:50%;
+	-ms-flex-preferred-size:50%;
+	flex-basis:50%;
+	max-width:50%
+}
+
+.xs-6 li{
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.boton-dashboard{
+	background-color: rgb(37,54,69);
+	color: white;
+	border-radius: 10px;
+}
+
+.boton-dentro-cart{
+	font-size: 14px;
+	background-color: rgb(37,54,69);
+	color: white;
+	border-radius: 20px;
+	margin-top: 45%;
+	left: 30%;
+	padding-bottom: 20PX;
+	padding-top: 20PX;
+}
+
+.abajo-izq{
+	text-align: right;
+}
+
+.id-cart, .num-cart{
+	font-size: 25px;
+}
+
+.id-cart{
+	color: rgb(37,54,69);
+}
+
+.num-cart{
+	font-weight: bold;
+	color: rgb(57,213,44);
+}
+
+.id-usuario{
+	position: absolute;
+	bottom: 0px;
+	right: 0px;
+	margin-bottom: 25px;
+	margin-right: 10px;
+}
