@@ -4,8 +4,14 @@
   "name": "Relax Panama",
   "short_name": "Relax Panama",
   "version": "com.relaxpanama.app",
-  "description": "Hello World sample application that responds to the deviceready event.",
   "author": "PhoneGap Team",
-  "icons": [],
+  "icons": [
+    {
+      "src": "www/img/favicon.png",
+      "type": "image/png",
+      "sizes": "undefinedxundefined"
+    }
+  ],
+  "orientation": "portrait",
   "start_url": "index.html"
 }

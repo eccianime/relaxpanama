@@ -5,47 +5,60 @@
 	<meta name="format-detection" content="telephone=no" />
 	<meta name="msapplication-tap-highlight" content="no" />
 	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
-	<meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' gap:; style-src 'self' 'unsafe-inline'; media-src *" />
+	<meta http-equiv="Content-Security-Policy" content="default-src *  data: blob: 'unsafe-inline' 'unsafe-eval';script-src * data: blob: 'unsafe-inline' 'unsafe-eval'; connect-src * data: blob: 'unsafe-inline'; img-src * data: blob: 'unsafe-inline'; frame-src * data: blob: ; style-src * data: blob: 'unsafe-inline';font-src * data: blob: 'unsafe-inline';" />
 
 	<title>RelaxPanama</title>
 	
 	<link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css" />
 	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/flexboxgrid.min.css">
+	<link rel="stylesheet" href="css/jcarousel-responsive.css">
 	<link rel="stylesheet" href="css/index.css">
 
 	<link rel="apple-touch-icon" href="img/favicon.png">
 	<link rel="icon" type="image/png" href="img/favicon.png">
 
-	<script src="js/jquery.min.js"></script>
+	<script src="js/lib/jquery.js"></script>
+	<script src="js/lib/jquery.jcarousel.min.js"></script>
 	<script src="cordova.js"></script>
 	<script src="js/index.js"></script>
-	<script src="js/jquery.mobile-1.4.5.min.js"></script>
+	<script src="js/home.js"></script>
+	<script src="js/lib/jquery.mobile-1.4.5.min.js"></script>
 </head>
 
 <body onload="onBodyLoad()">
+	<section data-role="popup" data-close-btn="none" id=modalGeneral data-transition=pop data-dismissible="false">
+		<div data-role="header">
+			<h3 class="titulo-blanco" id=tituloModal></h3>
+		</div>
+		<div class="ui-content text-center">
+			<p id=mensajeModal></p>
+			<a href="#" id=botonAtrasModal class="ui-btn ui-corner-all ui-shadow" data-rel=back><i class="fa fa-ok"></i> Volver</a>
+		</div>
+	</section>
 	<section data-role="page" id="home" data-theme="c" data-fullscreen=true>
+		<div class='splash'></div>
 		<div data-role="header"><h1><img class="logo"  src="img/logo.png"></h1> </div>
 		<div data-role="content" class="text-center">
 			<img class="logo-bienvenido" src="img/bienvenido.png" />
-			<div data-role="tabs" id="tabs">
+			<div data-role="tabs">
 				<div data-role="navbar">
 					<ul>
-						<li><a href="#inicioSesion" data-ajax="false">Iniciar Sesión</a></li>
-						<li><a href="#olvidePass" data-ajax="false">Olvidé mi Contraseña</a></li>
+						<li><a href="#inicioSesion" data-ajax="false" class="negrita">Iniciar Sesión</a></li>
+						<li><a href="#olvidePass" data-ajax="false" class="negrita" >Olvidé mi Contraseña</a></li>
 					</ul>
 				</div>
 				<div id="inicioSesion" class="ui-body-d ui-content">
 					<div class="ui-field-contain">
-						<input type="text" name="correo" id="correo" placeholder="Correo Electrónico" value="">
-						<input type="password" name="password" id="password" placeholder="Contraseña" value="">
-						<!-- <a class="ui-btn boton-log" href=#>INGRESAR</a> -->
-						<a class="ui-btn boton-log" href=tpl/dashboardasas.html>INGRESAR</a>
+						<input type="text" name="email" placeholder="Correo Electrónico" value="">
+						<input type="password" name="password" placeholder="Contraseña" value="">
+						<a class="ui-btn boton-log" onclick="login()" href=#>INGRESAR</a>
 					</div>
 				</div>
 				<div id="olvidePass" class="ui-body-d ui-content">
 					<div class="ui-field-contain">
-						<input type="text" name="correo" id="correo" placeholder="Correo Electrónico" value="">
-						<a class="ui-btn boton-log" href=#>ENVIAR</a>
+						<input type="text" name="email" placeholder="Correo Electrónico" value="">
+						<a class="ui-btn boton-log" onclick="resetPass()" href=#>ENVIAR</a>
 					</div>
 				</div>
 			</div>
@@ -54,5 +67,4 @@
 		<img src="img/fondo.png" class="img-responsive" />
 	</section>
 </body>
-
 </html>
