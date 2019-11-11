@@ -1,7 +1,3 @@
-/*
-kamal@relaxpanama.com
-*/
-
 AJAX( 'catalogo', null , catalogoRSP, "GET" );
 
 function catalogoRSP( xhr ) {

@@ -113,7 +113,9 @@ function restaDeFechas( fecha ) {
 		get resta(){
 			var meses = (this.hoy.y - this.dada.y)*12 + (this.hoy.m - this.dada.m);
 			var hace = "Hace ";
-			if( meses > 12  ){
+			if( meses > 24 ){
+				return "Hace más de 2 años";
+			}else if( meses > 12  ){
 				return "Hace más de un año";
 			}else if( meses > 1 ){
 				return "Hace "+meses+" meses";
@@ -135,9 +137,12 @@ function restaDeFechas( fecha ) {
 }
 
 function salir() {
-	mostrarCargando(0);
-	$.get("../index.html",function( data ) {
-		console.log( data );
+	$.ajax({
+		url: "../index.html",
+		statusCode: {
+			404: function() {		window.location.assign("../../index.html");	},
+			200: function() {		window.location.assign("../index.html");	}
+		}
 	})
-	//window.location.assign("../index.html");
+	
 }

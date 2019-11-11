@@ -221,6 +221,10 @@ textarea.ui-input-text::placeholder {
 	border-right-color: transparent;
 }
 
+.punteado img{
+	padding: 10px 0px;	
+}
+
 .disponibles{
 	position: relative;
 	text-align: center;
@@ -265,6 +269,14 @@ textarea.ui-input-text::placeholder {
 	background-color: rgb(37,54,69);
 	color: white;
 	border-radius: 10px;
+}
+
+.boton-dashboard span{
+	background-size: contain;
+	padding: 5px 30px;
+	background-repeat: no-repeat;	
+	font-weight: bold;
+	margin-left: 30px;
 }
 
 .boton-dentro-cart{
@@ -441,4 +453,17 @@ textarea.ui-input-text::placeholder {
 	background-image: url(../img/moneda.png);
 	float: right;
 	font-weight: bolder;
+}
+
+/*----------------- COMERCIOS -------------------*/
+
+.cont-comercios{
+	background-color: white;
+	border-top: 1px solid gray;
+	padding: 20px;
+}
+
+.cont-comercios img{
+	border: 1px solid #ddd;
+	margin-bottom: 10px;
 }
