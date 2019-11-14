@@ -512,6 +512,7 @@ textarea.ui-input-text::placeholder {
 	border-top-left-radius: 20px;
 	border-bottom-left-radius: 20px;
 	word-break: keep-all;
+	white-space: nowrap;
 	display: inline-block;
 	background-size: contain;
 }

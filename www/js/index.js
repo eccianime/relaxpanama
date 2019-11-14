@@ -16,10 +16,6 @@ function PGcargado(){
 	$.mobile.allowCrossDomainPages = true;
 	$.mobile.pushState = false;
 
-	$(document).on( 'pagecontainershow', function( e, ui ) {
-		openFullscreen();
-	})
-
 	$("#modalGeneral").popup();
 
 	setTimeout( function () {
@@ -147,17 +143,4 @@ function salir() {
 		}
 	})
 	
-}
-
-function openFullscreen() {
-	var elem = document.documentElement;
-	if (elem.requestFullscreen) {
-		elem.requestFullscreen();
-	} else if (elem.mozRequestFullScreen) { /* Firefox */
-		elem.mozRequestFullScreen();
-	} else if (elem.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
-		elem.webkitRequestFullscreen();
-	} else if (elem.msRequestFullscreen) { /* IE/Edge */
-		elem.msRequestFullscreen();
-	}
 }
