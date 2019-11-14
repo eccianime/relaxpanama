@@ -44,9 +44,10 @@
     width: 30px;
     height: 30px;
     text-align: center;
-    color: #fff;
+    color: #aaa;
+    font-weight: bold;
     text-decoration: none;
-    text-shadow: 0 0 1px #000;
+    /*text-shadow: 0 0 1px #000;*/
     font: 60px/27px Arial, sans-serif;
     -webkit-border-radius: 30px;
     -moz-border-radius: 30px;
@@ -54,11 +55,11 @@
 }
 
 .jcarousel-control-prev {
-    left: 15px;
+    left: 0px;
 }
 
 .jcarousel-control-next {
-    right: 15px;
+    right: 0px;
 }
 
 /** Carousel Pagination **/

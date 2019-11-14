@@ -1,11 +1,13 @@
 AJAX( 'catalogo', null , catalogoRSP, "GET" );
 
+var promo = "";
+
 function catalogoRSP( xhr ) {
 	var paquetes 	= xhr.paquetes,
 		html 		= "";
 	$.each( paquetes, function( i ) {
 		html += "\
-			<div class='elemento-lista'><div class='row'><div class='col-xs-4'>\
+			<div class='elemento-lista' data-promo-id="+paquetes[i].id+"><div class='row'><div class='col-xs-4'>\
 			<div class='box foto-promo' style='background-image:url("+paquetes[i].short_image+")'></div></div>\
 					<div class='col-xs-8'><div class='box'>\
 							<p class='text-center titulo-promo'>"+paquetes[i].name+"</p>\
@@ -17,5 +19,9 @@ function catalogoRSP( xhr ) {
   							</div></div></div></div></div>";
 	});
 	$("#promociones.ui-page-active .lista-catalogo").append( html );
+	$(".elemento-lista").click(function() {
+		promo = $(this).attr('data-promo-id');
+		$.mobile.changePage('promo-detalle.html');
+	})
 }
 
