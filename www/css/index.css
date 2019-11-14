@@ -83,6 +83,19 @@
 .ui-header{
 	background-color: rgb(37,54,69);
 	border-bottom: 5px solid rgb(57,213,44);
+	padding: 10px 0px;
+	top: 0px;
+}
+
+.ui-header-fixed.ui-fixed-hidden {
+	padding-top: 10px;
+}
+
+.ui-header-fixed .ui-btn-left, 
+.ui-header-fixed .ui-btn-right, 
+.ui-header-fixed.ui-fixed-hidden .ui-btn-left, 
+.ui-header-fixed.ui-fixed-hidden .ui-btn-right {
+    margin-top: 1px;
 }
 
 body{
@@ -194,7 +207,7 @@ textarea.ui-input-text::placeholder {
 	color: white;
 	border: none;
 	font-size: 30px;
-	padding: 10px;
+	padding: 20px 10px;
 	box-shadow: none;
 }
 
@@ -499,6 +512,7 @@ textarea.ui-input-text::placeholder {
 	border-top-left-radius: 20px;
 	border-bottom-left-radius: 20px;
 	word-break: keep-all;
+	display: inline-block;
 	background-size: contain;
 }
 

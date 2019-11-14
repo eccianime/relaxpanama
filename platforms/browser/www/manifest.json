@@ -4,7 +4,8 @@
   "name": "Relax Panama",
   "short_name": "Relax Panama",
   "version": "com.relaxpanama.app",
-  "author": "PhoneGap Team",
+  "description": "App para relajarse.",
+  "author": "Jean Paul Rojas",
   "icons": [
     {
       "src": "www/img/favicon.png",
