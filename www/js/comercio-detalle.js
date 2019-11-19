@@ -7,11 +7,11 @@ function comerciodetalleRSP( xhr ) {
 	var datos 		= xhr.detalle,
 		html 		= "", 
 		paquetes 	= datos.paquetes,
-		html_stack 	= function( tipo ) {
-			return "<span class='fa-stack fa-1x'>\
+		html_stack 	= function( tipo, link ) {
+			return "<a href='"+link+"' class='ui-btn text-green'><span class='fa-stack fa-1x'>\
   				<i class='fa fa-circle fa-stack-2x'></i>\
   				<i class='fa fa-"+tipo+" fa-stack-1x fa-inverse'></i>\
-			</span>";
+			</span></a>";
 		},
 		fun_estr 	= function( str ) {
 			var rest 	= Math.floor(5 - str),
@@ -35,15 +35,20 @@ function comerciodetalleRSP( xhr ) {
 	$(".tit-fond-azul").html( datos.name );
 
 	$('[img-com]').css({'background-image':"url("+datos.logo+")"});
-	//$('[tit-com]').html(datos.name);
 
-	if( datos.phone != "" ){           		$("[cont-com]").append( "<span  style='background-image: url(../../img/dtl_tlf.png);'>"+datos.phone+"</span><br><br>" );			}
- 	if( datos.email != "" ){           		$("[cont-com]").append( "<span  style='background-image: url(../../img/dtl_cor.png);'>"+datos.email+"</span><br><br>" );			}
-	if( datos.geolocalizacion != "," ){		$("[cont-com]").append( "<span  style='background-image: url(../../img/dtl_loc.png);'>"+datos.geolocalizacion+"</span>" );			}
+	if( datos.phone != "" ){           		$("[cont-com]").append( "<a class='ui-btn' style='background-image: url(../../img/dtl_tlf.png);' href=# data-href='tel:"+datos.phone+"'>"+datos.phone+"</span>" );											}
+ 	if( datos.email != "" ){           		$("[cont-com]").append( "<a class='ui-btn' style='background-image: url(../../img/dtl_cor.png);' href=# data-href='mailto:"+datos.email+"'>"+datos.email+"</span>" );											}
+	if( datos.geolocalizacion != "," ){		$("[cont-com]").append( "<a class='ui-btn' style='background-image: url(../../img/dtl_loc.png);' href=# data-href='http://maps.google.com/?q="+datos.geolocalizacion+"'>"+datos.geolocalizacion+"</span>" );	}
 
-	if( datos.facebook != "" ){        		$(".soc").append( html_stack("facebook") );			}
-	if( datos.twitter != "" ){         		$(".soc").append( html_stack("twitter") );			}
-	if( datos.instagram != "" ){       		$(".soc").append( html_stack("instagram") );		}
+	$("[cont-com] a").each( function(){ 
+		$(this).click(function() {
+			window.open( $(this).attr('data-href'), "_system" );
+		})
+	})
+
+	if( datos.facebook != "" ){        		$(".soc").append( html_stack("facebook", datos.facebook) );			}
+	if( datos.twitter != "" ){         		$(".soc").append( html_stack("twitter", datos.twitter) );			}
+	if( datos.instagram != "" ){			$(".soc").append( html_stack("instagram", "https://www.instragram.com/"+datos.instagram.substring(1, datos.instagram.lenght ) ) );		}
 
 	fun_estr( datos.ranking );
 

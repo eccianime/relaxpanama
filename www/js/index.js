@@ -1,5 +1,21 @@
 function onBodyLoad() {
 	document.addEventListener("deviceready", PGcargado, false);
+	document.addEventListener("backbutton", botonAtras, false);
+}
+
+function botonAtras( e ) {
+	e.preventDefault();
+	if( $('.ui-page-active').attr("id") == "home" ){
+		if( $( '#modalSalir-popup' ).hasClass( 'ui-popup-active' ) ){
+			window.history.back();
+		}else{
+			abrirModalSalir();
+		}
+	}
+}
+
+function SalirApp() {
+	navigator.app.exitApp();	
 }
 
 function PGcargado(){
@@ -12,15 +28,19 @@ function PGcargado(){
 	$.mobile.pageLoadErrorMessageTheme = "b";
 	$.mobile.pageLoadErrorMessageTheme = "b";
 
-	$.support.cors = true;
-	$.mobile.allowCrossDomainPages = true;
-	$.mobile.pushState = false;
-
 	$("#modalGeneral").popup();
+	$("#modalSalir").popup();
+	
 
 	setTimeout( function () {
 		$(".splash").fadeOut();
 	}, 3000);
+
+	$("input[name=email]").keydown(function( e ) {
+		if( e.which == 32 ){ // previene el espacio
+			e.preventDefault();
+		}
+	})
 }
 
 var usuario = {};
@@ -73,7 +93,13 @@ function abrirModal( nro, mensaje, regresar = null ) {
 	$("#modalGeneral").popup("open");
 }
 
-function mostrarCargando( transp = 1 ) {
+function abrirModalSalir() {
+	$(".ui-popup.ui-body-inherit").css({backgroundColor:"rgb(255,168,0)"});
+	$(".ui-popup .ui-btn").css({backgroundColor:"rgb(255,168,0)"});
+	$("#modalSalir").popup("open");
+}
+
+function mostrarCargando( transp = 0 ) {
 	var transp = transp == 1 ? "mid-transp" : "";
 	$('html').css({overflow: 'hidden'});
 	var loading = "<div class='splash "+transp+"'></div>";
@@ -135,12 +161,16 @@ function restaDeFechas( fecha ) {
 }
 
 function salir() {
+	mostrarCargando( 1 );
 	$.ajax({
 		url: "../index.html",
-		statusCode: {
-			404: function() {		window.location.assign("../../index.html");	},
-			200: function() {		window.location.assign("../index.html");	}
+		complete: function( a,b,c ) {
+			if( b == "success" ){
+				window.location.assign("../index.html");
+			}else{
+				window.location.assign("../../index.html");
+			}
+			
 		}
 	})
-	
 }

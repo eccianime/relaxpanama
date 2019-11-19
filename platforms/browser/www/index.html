@@ -9,7 +9,7 @@
 
 	<title>RelaxPanama</title>
 	
-	<link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css" />
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css" /> 
 	<link rel="stylesheet" href="css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/flexboxgrid.min.css">
 	<link rel="stylesheet" href="css/jcarousel-responsive.css">
@@ -36,6 +36,22 @@
 			<a href="#" id=botonAtrasModal class="ui-btn ui-corner-all ui-shadow" data-rel=back><i class="fa fa-ok"></i> Volver</a>
 		</div>
 	</section>
+	<section data-role="popup" data-close-btn="none" id=modalSalir data-transition=pop data-dismissible="false">
+		<div data-role="header">
+			<h1 class="titulo-blanco"><i class='fa fa-warning'></i> ¿Quieres Salir?</h1>
+		</div>
+		<div class="ui-content text-center">
+			<p>¿Estás seguro que quieres salir de la aplicación?</p>
+			<div class="row center-xs">
+				<div class="col-xs-6"><div class="box">
+					<a href="#" onclick="SalirApp()" class="ui-btn ui-btn-raised ui-btn-inline boton-verde w50p" role="button"><i class="fa fa-ok"></i> Salir</a>		
+				</div></div>
+				<div class="col-xs-6"><div class="box">
+					<a href="#" class="ui-btn ui-btn-raised ui-btn-inline boton-verde w50p" data-rel=back role="button"><i class="fa fa-ok"></i> Volver</a>		
+				</div></div>
+			</div>
+		</div>
+	</section>
 	<section data-role="page" id="home" data-theme="c">
 		<div class='splash'></div>
 		<div data-role="header"><h1><img class="logo"  src="img/logo.png"></h1> </div>
@@ -50,20 +66,20 @@
 				</div>
 				<div id="inicioSesion" class="ui-body-d ui-content">
 					<div class="ui-field-contain">
-						<input type="text" name="email" placeholder="Correo Electrónico" value="">
-						<input type="password" name="password" placeholder="Contraseña" value="">
+						<input type="text" name="email" placeholder="Correo Electrónico">
+						<input type="password" name="password" placeholder="Contraseña">
 						<a class="ui-btn boton-log" onclick="login()" href=#>INGRESAR</a>
 					</div>
 				</div>
 				<div id="olvidePass" class="ui-body-d ui-content">
 					<div class="ui-field-contain">
-						<input type="text" name="email" placeholder="Correo Electrónico" value="">
+						<input type="text" name="email" placeholder="Correo Electrónico">
 						<a class="ui-btn boton-log" onclick="resetPass()" href=#>ENVIAR</a>
 					</div>
 				</div>
 			</div>
 		</div>
-		<img src="img/fondo.png" class="img-responsive" />
+		<img src="img/fondo.png" class="img-responsive fondo-index" />
 	</section>
 </body>
 </html>

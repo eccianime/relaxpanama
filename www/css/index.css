@@ -2,7 +2,7 @@
 	COLORES
 
 	VERDE
-	rgb(57,213,44)
+	rgb(57,	213,44)
 		
 	AZUL
 	rgb(37,54,69)
@@ -48,9 +48,23 @@
 	left: 20%;
 }
 
-/*.mid-transp{
+.mid-transp{
 	background-color: rgba( 255, 255, 255, .5 );
-}*/
+}
+
+[name=email]{
+	text-transform: lowercase;	
+}
+
+[name=email]::placeholder{
+	text-transform: none;	
+}
+
+.fondo-index{
+	position: fixed;
+	bottom: 0px;
+	z-index: -1;
+}
 
 .ui-popup-screen.in {
 	background-color: black;
@@ -78,17 +92,15 @@
 	text-align: center;
 }
 
-
-
 .ui-header{
 	background-color: rgb(37,54,69);
 	border-bottom: 5px solid rgb(57,213,44);
-	padding: 10px 0px;
+	padding: 20px 0px;
 	top: 0px;
 }
 
 .ui-header-fixed.ui-fixed-hidden {
-	padding-top: 10px;
+	padding-top: 20px;
 }
 
 .ui-header-fixed .ui-btn-left, 
@@ -155,9 +167,12 @@ body{
 	border-left: 2px solid rgb(37,54,69);
 }
 
-.ui-tabs-panel{
+.ui-tabs-panel, 
+.ui-tabs-panel.ui-corner-all > .ui-header:last-child,
+.ui-tabs-panel.ui-corner-all > .ui-content:last-child,
+.ui-tabs-panel.ui-corner-all > .ui-footer:last-child {
 	background-color: rgb(57,213,44);
-	border-radius: 0px 0px 20px 20px;
+	border-radius: 0px 0px 20px 20px !important;
 }
 
 .ui-input-text{
@@ -207,7 +222,7 @@ textarea.ui-input-text::placeholder {
 	color: white;
 	border: none;
 	font-size: 30px;
-	padding: 20px 10px;
+	padding: 30px 10px;
 	box-shadow: none;
 }
 
@@ -337,6 +352,7 @@ textarea.ui-input-text::placeholder {
 
 .carta{
 	margin: 20px 10%;
+	min-width: 80%;
 }
 
 /*----------------- BLOG -------------------*/
@@ -527,7 +543,18 @@ textarea.ui-input-text::placeholder {
 
 [cont-com]{
 	padding-top: 30px;
-	padding-left: 20px;
+}
+
+[cont-com] .ui-btn{
+	padding: 10px 0px 10px 40px;
+	border: none;
+	font-weight: normal;
+	margin-right: -20px;
+	text-align: left;
+	font-size: 0.75em;
+	background-size: cover;
+	background-repeat: no-repeat;
+	color: white;
 }
 
 [desc-promo], [term-promo]{
@@ -574,6 +601,12 @@ textarea.ui-input-text::placeholder {
 	margin-left: 35px;
 }
 
+.soc .ui-btn{
+	display: inline;
+	border: none;
+	padding: 0;
+}
+
 .rank{
 	margin-left: 20px;
 	margin-right: -20px;
@@ -589,4 +622,125 @@ textarea.ui-input-text::placeholder {
 	background-color: white;
 	padding-bottom: 20px;
 	border-bottom: 2px solid gray;
+}
+
+.w50p{
+	width: 50% !important;
+}
+
+/*----------------- COMPRA -------------------*/
+
+.contenido-base{
+	padding: 30px;
+}
+
+.token-der{
+	text-align: right;
+	border: 1px solid gray;
+	padding: 5px;
+	border-radius: .3125em;
+	font-size: 1.2em;
+	font-weight: bold;
+	width: 95%;
+	display: inline-block;
+	border-left: none;
+	border-top-left-radius: 15px;
+	border-bottom-left-radius: 15px;
+}
+
+.token-der img{
+	padding-right: 20px;
+	margin-top: -1px;
+	width: 30px;
+	margin-bottom: -6px;
+}
+
+.token-izq{
+	background-image: url(../img/tokens.png);
+	background-repeat: no-repeat;
+	background-position: left;
+	background-size: contain;
+	position: absolute;
+	height: 40px;
+	display: inline-block;
+	left: 30px;
+	margin-top: 0px;
+	width: 100%;
+}
+
+[data-monedas] ~ div{
+    margin-top:10px;
+    margin-bottom: 10px;
+  }
+
+.numeros{
+	text-align: center;
+}
+
+.numeros > div{
+	display: inline-flex;
+	width: 60%;
+}
+
+.numeros .numero{
+	flex: 33.33%;
+	border: 1px solid gray;
+	border-radius: .3125em;
+	background-image: linear-gradient(to bottom, #fff, #ccc);
+	margin: 5px 5px;
+	cursor: pointer;
+	max-width: 45px;
+	max-height: 25px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.numeros .numero:active{
+	background-image: linear-gradient(to bottom, #ccc, #fff);
+}
+
+.numero-disabled{
+	opacity: .5;
+}
+
+.ui-input-text input.pin, .ui-input-text input.cartera-field  {
+	text-align: center;
+}
+
+
+  /*----------------- PERFIL -------------------*/
+
+.mega-icon i{
+	color: rgb(199,199,199);
+	font-size: 11em;
+}
+
+.ui-controlgroup-horizontal .ui-controlgroup-controls {
+	width: 100%;
+}
+
+ .ui-controlgroup-horizontal .ui-controlgroup-controls .ui-radio{
+ 	width: 50%;
+ }
+
+ .ui-controlgroup-horizontal .ui-radio input{
+ 	margin-left: 0px;
+ 	left: 10px;
+ }
+
+ .ui-controlgroup-horizontal .ui-btn.ui-first-child,
+ .ui-controlgroup-horizontal .ui-btn.ui-last-child {
+	border: none;
+	padding-left: 35px;
+	font-weight: normal;
+ }
+
+ .ui-radio .ui-btn.ui-radio-on::after {
+    background-image: none;
+    background-color: #fff;
+    width: 8px;
+    height: 8px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #38c;
 }

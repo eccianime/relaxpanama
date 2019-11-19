@@ -1,0 +1,42 @@
+<section data-role="page" id="compra" class="fondo-normal" data-theme="c">
+	<div data-role="header" data-position="fixed"><h1><img class="logo"  src="../../img/logo.png"></h1>
+		<a href="#" data-rel=back class="ui-btn-left"><i class="fa fa-chevron-circle-left"></i></a>
+		<a href="#" onclick="salir()" class="ui-btn-right"><i class="fa fa-sign-out"></i></a>
+	</div>
+	<div role="main">
+		<div class="tit-fond-azul">PROCESAR COMPRA</div>
+
+		<div class="contenido-base">
+			<div data-monedas>
+				<div class="token-der">
+					<img src="../../img/moneda.png"><span cant-monedas>x.xx</span>
+				</div>
+				<div class="token-izq"></div>
+			</div>
+			<input type="password" name=pin placeholder="PIN" class="pin" readonly="true">
+			<div class="numeros">
+				<div>
+					<div class="numero">1</div>
+					<div class="numero">2</div>
+					<div class="numero">3</div>
+				</div>
+				<div>
+					<div class="numero">4</div>
+					<div class="numero">5</div>
+					<div class="numero">6</div>
+				</div>
+				<div>
+					<div class="numero">7</div>
+					<div class="numero">8</div>
+					<div class="numero">9</div>
+				</div>
+				<div>
+					<div class="numero numero-disabled numero-clr">CLR</div>
+					<div class="numero">0</div>
+					<div class="numero numero-disabled numero-back"><i class="fa fa-arrow-left"></i></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="../../js/compra.js"></script>
+</section>
