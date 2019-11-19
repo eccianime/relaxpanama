@@ -70,5 +70,7 @@ $("[name=pin]").change( function(e) {
 } )
 
 function compraRSP( xhr ) {
-	console.log(xhr);
+	abrirModal( 2, "Deberia decir algo" );
+			$(".numero-clr").click();
+	quitarCargando();
 }
