@@ -70,11 +70,7 @@
 	background-color: black;
 }
 
-.ui-popup {
-	background-color: white;
-}
-
-.ui-popup .ui-content {
+.ui-popup, .ui-popup .ui-content {
 	background-color: white;
 }
 
@@ -173,10 +169,6 @@ body{
 .ui-tabs-panel.ui-corner-all > .ui-footer:last-child {
 	background-color: rgb(57,213,44);
 	border-radius: 0px 0px 20px 20px !important;
-}
-
-.ui-input-text{
-	border-color: #aaa;
 }
 
 .ui-input-text{
@@ -743,4 +735,48 @@ textarea.ui-input-text::placeholder {
     border-width: 5px;
     border-style: solid;
     border-color: #38c;
+}
+
+  /*----------------- MOVIMIENTOS -------------------*/
+
+.base-movimientos{
+	background-color: white;
+	padding: 20px;
+}
+
+.bloque-mov{
+	border-top: 2px solid gray;
+	padding: 0px 30px;
+	display: flow-root;
+	margin: 0px -20px 0px;
+}
+
+.bloque-mov:last-child{
+	border-bottom: 2px solid gray;
+}
+
+.bloque-mov div{
+	font-size: .8em;
+	line-height: 1.1em;
+	display: flow-root;
+}
+
+.bloque-mov-izq{
+	float: left;
+}
+
+.bloque-mov-izq p{
+  	margin: 13px 0px;
+}
+
+.bloque-mov-der{
+	float: right;
+	text-align: right;
+}
+
+.bloque-mov-der span{
+	background-image: url(../img/moneda.png);
+	background-size: contain;
+	padding: 5px 0px 5px 35px;
+	background-repeat: no-repeat;
 }

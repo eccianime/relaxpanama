@@ -57,6 +57,7 @@ $("[name=pin]").change( function(e) {
 	if( v.length == 4 ){
 		if( promo_det.price > parseFloat($("[cant-monedas]").html()) ){
 			abrirModal( 1, "Saldo insuficiente. Por favor, elija otra cartera, otro paquete o recargue su saldo." );
+			$(".numero-clr").click();
 		}else{
 			mostrarCargando();
 			var envio = {
@@ -69,5 +70,7 @@ $("[name=pin]").change( function(e) {
 } )
 
 function compraRSP( xhr ) {
-	console.log(xhr);
+	abrirModal( 2, "Deberia decir algo" );
+			$(".numero-clr").click();
+	quitarCargando();
 }

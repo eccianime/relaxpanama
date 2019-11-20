@@ -2,13 +2,13 @@
 kamal@relaxpanama.com
 */
 AJAX( "comercios/detalle", {slug:com} , comerciodetalleRSP );
-var promo = "";
+var promo;
 function comerciodetalleRSP( xhr ) {
 	var datos 		= xhr.detalle,
 		html 		= "", 
 		paquetes 	= datos.paquetes,
 		html_stack 	= function( tipo, link ) {
-			return "<a href='"+link+"' class='ui-btn text-green'><span class='fa-stack fa-1x'>\
+			return "<a href=# data-href='"+link+"' class='ui-btn text-green'><span class='fa-stack fa-1x'>\
   				<i class='fa fa-circle fa-stack-2x'></i>\
   				<i class='fa fa-"+tipo+" fa-stack-1x fa-inverse'></i>\
 			</span></a>";
@@ -33,7 +33,6 @@ function comerciodetalleRSP( xhr ) {
 		};
 
 	$(".tit-fond-azul").html( datos.name );
-
 	$('[img-com]').css({'background-image':"url("+datos.logo+")"});
 
 	if( datos.phone != "" ){           		$("[cont-com]").append( "<a class='ui-btn' style='background-image: url(../../img/dtl_tlf.png);' href=# data-href='tel:"+datos.phone+"'>"+datos.phone+"</span>" );											}
@@ -46,9 +45,15 @@ function comerciodetalleRSP( xhr ) {
 		})
 	})
 
-	if( datos.facebook != "" ){        		$(".soc").append( html_stack("facebook", datos.facebook) );			}
-	if( datos.twitter != "" ){         		$(".soc").append( html_stack("twitter", datos.twitter) );			}
+	if( datos.facebook != "" ){			$(".soc").append( html_stack("facebook", datos.facebook) );					}
+	if( datos.twitter != "" ){				$(".soc").append( html_stack("twitter", datos.twitter) );					}
 	if( datos.instagram != "" ){			$(".soc").append( html_stack("instagram", "https://www.instragram.com/"+datos.instagram.substring(1, datos.instagram.lenght ) ) );		}
+
+	$(".soc a").each( function(){ 
+		$(this).click(function() {
+			window.open( $(this).attr('data-href'), "_system" );
+		})
+	})
 
 	fun_estr( datos.ranking );
 
@@ -60,7 +65,7 @@ function comerciodetalleRSP( xhr ) {
 		$('.lista-catalogo').before(sel);
 		$.each( paquetes, function( i ) {
 			html += "\
-				<div class='elemento-lista' data-promo-id="+paquetes[i].id+"><div class='row'><div class='col-xs-4'>\
+				<div class='elemento-lista' data-promo-price="+paquetes[i].price+" data-promo-name="+paquetes[i].name+" data-promo-id="+paquetes[i].id+"><div class='row'><div class='col-xs-4'>\
 				<div class='box foto-promo' style='background-image:url("+paquetes[i].short_image+")'></div></div>\
 						<div class='col-xs-8'><div class='box'>\
 								<p class='text-center titulo-promo'>"+paquetes[i].name+"</p>\

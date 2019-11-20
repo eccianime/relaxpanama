@@ -1,11 +1,8 @@
 /*
 kamal@relaxpanama.com
 */
-
 AJAX( 'catalogo/'+promo+"/detalle", null , promodetalleRSP, "GET" );
-
 var promo_det = {};
-
 function promodetalleRSP( xhr ) {
 	var datos 		= xhr.detalles,
 		html_stack 	= function( tipo, link ) {

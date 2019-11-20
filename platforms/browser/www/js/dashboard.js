@@ -1,6 +1,7 @@
 AJAX( 'home', {id: usuario.id}, homeRSP );
 
-var cards;
+var cards,
+	activeCard;
 
 function homeRSP( xhr ) {
 	$("[name=nombreUsuario]").html( xhr.user.name );
@@ -21,7 +22,7 @@ function homeRSP( xhr ) {
 					</div>\
 					<div class='xs-6'>\
 						<div class='abajo-izq'>\
-							<a class='ui-btn boton-dentro-cart' onclick='movimientos()' href='#'>VER<br>MOVIMIENTOS</a>\
+							<a class='ui-btn boton-dentro-cart' onclick='movimientos("+cards[i].id+")' href='#'>VER<br>MOVIMIENTOS</a>\
 							<div class='id-usuario'>\
 								<span class='id-cart'>ID: </span><span class='num-cart'>"+cards[i].serial+"</span>\
 							</div>\
@@ -69,7 +70,8 @@ function asignar_pin() {
 	$.mobile.changePage( "perfil/asignar-pin.html" );
 }
 
-function movimientos() {
+function movimientos( id ) {
+	activeCard = id;
 	$.mobile.changePage( "perfil/movimientos.html" );
 }
 
