@@ -18,8 +18,9 @@ function catalogoRSP( xhr ) {
 								<p> "+paquetes[i].price+"</p>\
   							</div></div></div></div></div>";
 	});
-	$("#promociones.ui-page-active .lista-catalogo").append( html );
+	$(".ui-page-active .lista-catalogo").append( html );
 	$(".elemento-lista").click(function() {
+		mostrarComprar = 1;
 		promo = $(this).attr('data-promo-id');
 		$.mobile.changePage('promo-detalle.html');
 	})

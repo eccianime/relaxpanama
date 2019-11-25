@@ -2,6 +2,7 @@ AJAX( 'home', {id: usuario.id}, homeRSP );
 
 var cards,
 	activeCard;
+var mostrarComprar = 1;
 
 function homeRSP( xhr ) {
 	$("[name=nombreUsuario]").html( xhr.user.name );
@@ -16,9 +17,9 @@ function homeRSP( xhr ) {
 			<div class='cartera'>\
 				<div class='punteado row'>\
 					<div class='xs-6'>\
-						<a href='#' onclick='"+htmlCoA+"_pin()' class='ui-link'><img class='img-responsive' src='../img/"+htmlCoA+"_pin.png'></a>\
-						<a href='#' onclick='recargar()' class='ui-link'><img class='img-responsive' src='../img/recargar.png'></a>\
-						<a href='#' onclick='mis_paquetes()' class='ui-link'><img class='img-responsive' src='../img/mis_paquetes.png'></a>\
+						<a href='#' onclick='"+htmlCoA+"_pin("+cards[i].id+","+cards[i].serial+")' class='ui-link'><img class='img-responsive' src='../img/"+htmlCoA+"_pin.png'></a>\
+						<a href='#' onclick='recargar("+cards[i].id+","+cards[i].serial+")' class='ui-link'><img class='img-responsive' src='../img/recargar.png'></a>\
+						<a href='#' onclick='mis_paquetes("+cards[i].serial+")' class='ui-link'><img class='img-responsive' src='../img/mis_paquetes.png'></a>\
 					</div>\
 					<div class='xs-6'>\
 						<div class='abajo-izq'>\
@@ -62,11 +63,13 @@ function perfil() {
 	$.mobile.changePage( "perfil/perfil.html" );
 }
 
-function cambiar_pin() {
+function cambiar_pin( id, serial ) {
+	activeCard = { id: id, serial: serial };
 	$.mobile.changePage( "perfil/cambiar-pin.html" );
 }
 
-function asignar_pin() {
+function asignar_pin( id, serial ) {
+	activeCard = { id: id, serial: serial };
 	$.mobile.changePage( "perfil/asignar-pin.html" );
 }
 
@@ -75,10 +78,12 @@ function movimientos( id ) {
 	$.mobile.changePage( "perfil/movimientos.html" );
 }
 
-function recargar() {
+function recargar( id, serial ) {
+	activeCard = { id: id, serial: serial };
 	$.mobile.changePage( "perfil/recargar.html" );
 }
 
-function mis_paquetes() {
+function mis_paquetes( serial ) {
+	activeCard = { serial: serial };
 	$.mobile.changePage( "perfil/mis-paquetes.html" );
 }

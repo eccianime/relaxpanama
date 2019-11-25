@@ -5,7 +5,9 @@ AJAX( "comercios/detalle", {slug:com} , comerciodetalleRSP );
 var promo;
 function comerciodetalleRSP( xhr ) {
 	var datos 		= xhr.detalle,
+		categorias 	= xhr.categorias,
 		html 		= "", 
+		html2 		= "", 
 		paquetes 	= datos.paquetes,
 		html_stack 	= function( tipo, link ) {
 			return "<a href=# data-href='"+link+"' class='ui-btn text-green'><span class='fa-stack fa-1x'>\
@@ -37,7 +39,7 @@ function comerciodetalleRSP( xhr ) {
 
 	if( datos.phone != "" ){           		$("[cont-com]").append( "<a class='ui-btn' style='background-image: url(../../img/dtl_tlf.png);' href=# data-href='tel:"+datos.phone+"'>"+datos.phone+"</span>" );											}
  	if( datos.email != "" ){           		$("[cont-com]").append( "<a class='ui-btn' style='background-image: url(../../img/dtl_cor.png);' href=# data-href='mailto:"+datos.email+"'>"+datos.email+"</span>" );											}
-	if( datos.geolocalizacion != "," ){		$("[cont-com]").append( "<a class='ui-btn' style='background-image: url(../../img/dtl_loc.png);' href=# data-href='http://maps.google.com/?q="+datos.geolocalizacion+"'>"+datos.geolocalizacion+"</span>" );	}
+	if( datos.geolocalizacion != "," ){		$("[cont-com]").append( "<a class='ui-btn' style='background-image: url(../../img/dtl_loc.png);' href=# data-href='http://maps.google.com/?q="+datos.geolocalizacion+"'>Dirección</span>" );	}
 
 	$("[cont-com] a").each( function(){ 
 		$(this).click(function() {
@@ -58,9 +60,10 @@ function comerciodetalleRSP( xhr ) {
 	fun_estr( datos.ranking );
 
 	if( paquetes.length > 0 ){
-		var sel = "<div class='input-agrupado'>\
-			<div class='ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset'><input type='text' placeholder='Seleccione...'></div>\
-			<span class='fa fa-search icono-verde'></span>\
+		var sel = "<div class='categ-comercios'>\
+			<select name='categ-comercios' data-icon=search>\
+				<option value=''>Todos</option>\
+			</select>\
 		</div>";
 		$('.lista-catalogo').before(sel);
 		$.each( paquetes, function( i ) {
@@ -76,9 +79,10 @@ function comerciodetalleRSP( xhr ) {
 									<p> "+paquetes[i].price+"</p>\
 	  							</div></div></div></div></div>";
 		});
-		$("#comercio-detalle.ui-page-active .lista-catalogo").append( html );
+		$(".ui-page-active .lista-catalogo").append( html );
 		$(".elemento-lista").click(function() {
 			promo = $(this).attr('data-promo-id');
+			mostrarComprar = 1;
 			$.mobile.changePage('../promociones/promo-detalle.html');
 		})
 	}else{

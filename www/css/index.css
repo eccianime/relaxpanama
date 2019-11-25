@@ -2,7 +2,7 @@
 	COLORES
 
 	VERDE
-	rgb(57,	213,44)
+	rgb(57,213,44)
 		
 	AZUL
 	rgb(37,54,69)
@@ -187,12 +187,6 @@ textarea.ui-input-text::placeholder {
 	background-color: white;
 	color: rgb(57,213,44);
 	border-radius: 5px;
-
-/*recomendacion para el boton de log in*/
-	/*width: 35%;			
-	margin-left: auto;
-	margin-right: auto;
-	margin-top: 30px;*/
 }
 
 .ui-tabs{
@@ -493,8 +487,32 @@ textarea.ui-input-text::placeholder {
 	background-size: cover;
 	border: 1px solid #ddd;
 }
+
 .cont-comercios .box{
 	margin-bottom: 15px;
+}
+
+.categ-comercios .ui-select{
+	margin: 5% 7%;
+}
+
+.categ-comercios .ui-btn{
+	border: none;
+	background-color: white;
+	box-shadow: inset 0 1px 3px rgba(0,0,0,.2);
+}
+
+.categ-comercios .ui-btn-icon-right::after{
+    right: 0em;
+    width: 43.2px;
+    height: 43.2px;
+    margin-top: -20px;
+    background-color: rgb(57,213,44);
+    border-radius: 0em .3125em .3125em 0em;    
+}
+  
+.categ-comercios .ui-icon-search::after{
+    background-size:20px;
 }
 
 /*----------------- PROMOCIONES -------------------*/
@@ -737,6 +755,41 @@ textarea.ui-input-text::placeholder {
     border-color: #38c;
 }
 
+.ui-radio input{
+    position: absolute;
+    opacity: 0;
+    height: 0;
+    width: 0;
+  }
+  
+ .ui-radio .check{
+	position: absolute;
+	top: 7px;
+	left: 10px;
+	height: 12px;
+	width: 12px;
+	border-radius: 50%;
+	border: 4px solid rgb(215,220,222);
+  }
+  
+.ui-radio-on .check {
+  border-color: rgb(91,177,48);
+}
+
+.ui-radio-on .check .check2 {
+    position: absolute;
+	top: 3px;
+	left: 3px;
+	height: 6px;
+	width: 6px;
+	border-radius: 50%;
+	background: rgb(91,177,48);
+}
+
+#perfil .ui-input-text{
+	border-color: transparent;
+}
+
   /*----------------- MOVIMIENTOS -------------------*/
 
 .base-movimientos{
@@ -779,4 +832,35 @@ textarea.ui-input-text::placeholder {
 	background-size: contain;
 	padding: 5px 0px 5px 35px;
 	background-repeat: no-repeat;
+}
+
+ /*----------------- RECARGAR -------------------*/
+
+.visa_master{
+ 	padding: 10px 0px;
+}
+
+.ayuda-moneda{
+ 	width: 37px;
+ 	padding-top: 8px;
+}
+
+/*----------------- PIN -------------------*/
+
+.base-pin{
+	padding: 20px;
+}
+
+.base-pin .ui-input-text{
+    border-radius:0px;
+	box-shadow: none;
+	margin: 10px 20px;
+}
+	
+.base-pin .ui-input-text input::placeholder {
+    font-weight: normal;
+}
+
+.base-pin .ui-btn{
+    margin: 15px 20px;
 }

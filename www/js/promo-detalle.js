@@ -35,7 +35,7 @@ function promodetalleRSP( xhr ) {
 
 	if( datos.comercio.phone != "" ){           		$("[cont-com]").append( "<a class='ui-btn' style='background-image: url(../../img/dtl_tlf.png);' href=# data-href='tel:"+datos.comercio.phone+"'>"+datos.comercio.phone+"</span>" );											}
  	if( datos.comercio.email != "" ){           		$("[cont-com]").append( "<a class='ui-btn' style='background-image: url(../../img/dtl_cor.png);' href=# data-href='mailto:"+datos.comercio.email+"'>"+datos.comercio.email+"</span>" );											}
-	if( datos.comercio.geolocalizacion != "," ){		$("[cont-com]").append( "<a class='ui-btn' style='background-image: url(../../img/dtl_loc.png);' href=# data-href='http://maps.google.com/?q="+datos.comercio.geolocalizacion+"'>"+datos.comercio.geolocalizacion+"</span>" );	}
+	if( datos.comercio.geolocalizacion != "," ){		$("[cont-com]").append( "<a class='ui-btn' style='background-image: url(../../img/dtl_loc.png);' href=# data-href='http://maps.google.com/?q="+datos.comercio.geolocalizacion+"'>Dirección</span>" );	}
 
 	$("[cont-com] a").each( function(){ 
 		$(this).click(function() {
@@ -64,9 +64,55 @@ function promodetalleRSP( xhr ) {
 	$('[id-promo]').attr('id-promo', datos.id);
 	$('[tit-promo]').html(datos.name);
 	$('[desc-promo]').html(datos.large_description);
-	$('[img-promo]').attr( 'src', datos.large_image);
+	
+	
+	var html = "";
+
+	if( datos.img_adicionales.length > 0 ){
+		html = "<div class='jcarousel-wrapper'><div class='jcarousel'>\
+						<ul data-lista-carousel>\
+							<li><div class='carta'><img class='img-responsive' src='"+datos.large_image+"'></div></li>";
+
+		$.each( datos.img_adicionales, function( i ) {
+			html += "<li><div class='carta'><img class='img-responsive' src='"+datos.img_adicionales[i]+"'></div></li>";
+		})
+
+		html += "</ul></div><a href='#' class='jcarousel-control-prev'>&lsaquo;</a><a href='#' class='jcarousel-control-next'>&rsaquo;</a></div>";
+		$(".img-o-carousel").append( html ).ready(function() {
+			var jcarousel = $('.jcarousel')
+				.on('jcarousel:reload jcarousel:create', function () {
+					var carousel = $(this),
+						width = carousel.innerWidth();
+
+					carousel.jcarousel('items').css('min-width', $(document).width() + 'px');
+					carousel.jcarousel('items').css('max-width', $(document).width() + 'px');
+				})
+				.jcarousel({
+					wrap: 'circular'
+				});
+
+			$('.jcarousel-control-prev')
+				.jcarouselControl({
+					target: '-=1'
+				});
+
+			$('.jcarousel-control-next')
+				.jcarouselControl({
+					target: '+=1'
+				});
+		});
+	}else{
+		html = "<img class='img-responsive' src='"+datos.large_image+"'>";
+		$(".img-o-carousel").append( html );
+	}
+	
+
 	$('[term-promo]').html(datos.terms);
 	$('[prec-promo]').html(datos.price);
+
+	if( mostrarComprar == 0 ){
+		$(".mostrarComprar").css({display:"none"});
+	}
 }
 
 function compraPromo() {

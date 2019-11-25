@@ -7,12 +7,13 @@
 		<div class="tit-fond-azul">PERFIL</div>
 		<div class="contenido-base">
  			<p class="negrita">Foto de Cédula o Pasaporte</p>
-			<p class="text-center mega-icon"><i class="fa fa-user"></i></p>
-
+			<p class="text-center mega-icon"></p>
 		<fieldset data-role="controlgroup" data-type="horizontal" data-mini=true>
-			<label><input type="radio" name="mantener-cambiar" checked="true">Mantener Actual</label>
-			<label><input type="radio" name="mantener-cambiar">Cambiar</label>
+			<label><input type="radio" name="mantener-cambiar" checked="true" value=mantener><span class="check"><span class="check2"> </span></span>Mantener Actual</label>
+			<label><input type="radio" name="mantener-cambiar" value=cambiar><span class="check"><span class="check2"> </span></span>Cambiar</label>
 		</fieldset>
+		<input type="file" name="imagen_perfil" style="display: none" accept="image/*">
+		<a href="#" class="boton-verde" data-role=button onclick="cambiarFotoPerfil()">CAMBIAR</a>
 	</div>
 	<script src="../../js/perfil.js"></script>
 </section>

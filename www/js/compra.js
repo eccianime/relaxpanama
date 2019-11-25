@@ -1,14 +1,3 @@
-/*
-kamal@relaxpanama.com
-
-
-promo_det = {
-		id: datos.id,
-		name: datos.name,
-		price: datos.price,
-	}
-*/
-
 if( cards.length == 1 ){
 	var html = "<input type='text' name='cartera' class='cartera-field' readonly='true' data-val="+cards[0].id+" value="+cards[0].serial+">";
 	$("[cant-monedas]").html(cards[0].balance.toFixed(2));
