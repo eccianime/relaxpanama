@@ -19,7 +19,7 @@ function asignar_pin(){
 			new_pin: pin.n 
 		}
 
-		AJAX( 'cambiarPin', data , asignarPinRSP );
+		AJAX( 'cambiaPin', data , asignarPinRSP );
 	}
 }
 

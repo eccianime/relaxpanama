@@ -15,16 +15,23 @@ function cambiar_pin(){
 		abrirModal( 1, "Los campos PIN NUEVO y CONFIRMAR PIN deben ser iguales. Por favor, corrija e intente de nuevo." );
 	}else{
 		var data = { 
-			id: activeCard.id,
-			serial: activeCard.serial,
+			id: usuario.id,
+			card_id: activeCard.id,
 			pin: pin.a,
 			new_pin: pin.n 
 		}
-
-		AJAX( 'cambiarPin', data , cambiarPinRSP );
+		AJAX( 'cambiaPin', data , cambiaPinRSP );
 	}
 }
 
-function cambiarPinRSP( xhr ) {
-	console.log( xhr );
+function cambiaPinRSP( xhr ) {
+	if( xhr.status == true ){
+		abrirModal(2, xhr.response, 1);
+	}else{
+		abrirModal(1, xhr.response);
+	}
 }
+
+$("[type=tel]").keyup(function(e) {
+	$(this).val( $(this).val().replace( /[^0-9]/g, "" ) );
+})

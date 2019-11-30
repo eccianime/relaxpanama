@@ -181,6 +181,7 @@ body{
 textarea.ui-input-text::placeholder {
 	color: #333;
 	font-weight: bold;
+	text-align: left;
 }
 
 .boton-log{
@@ -492,17 +493,17 @@ textarea.ui-input-text::placeholder {
 	margin-bottom: 15px;
 }
 
-.categ-comercios .ui-select{
+.categ-comercios .ui-select, .categ-promociones .ui-select{
 	margin: 5% 7%;
 }
 
-.categ-comercios .ui-btn{
+.categ-comercios .ui-btn, .categ-promociones .ui-btn{
 	border: none;
 	background-color: white;
 	box-shadow: inset 0 1px 3px rgba(0,0,0,.2);
 }
 
-.categ-comercios .ui-btn-icon-right::after{
+.categ-comercios .ui-btn-icon-right::after, .categ-promociones .ui-btn-icon-right::after{
     right: 0em;
     width: 43.2px;
     height: 43.2px;
@@ -511,7 +512,7 @@ textarea.ui-input-text::placeholder {
     border-radius: 0em .3125em .3125em 0em;    
 }
   
-.categ-comercios .ui-icon-search::after{
+.categ-comercios .ui-icon-search::after, .categ-promociones .ui-icon-search::after{
     background-size:20px;
 }
 
@@ -617,9 +618,13 @@ textarea.ui-input-text::placeholder {
 	padding: 0;
 }
 
-.rank{
+.rank, .pago-sitio{
 	margin-left: 20px;
 	margin-right: -20px;
+}
+
+.pago-sitio{
+	margin-top: 15px;
 }
 
 .rank img{
@@ -863,4 +868,8 @@ textarea.ui-input-text::placeholder {
 
 .base-pin .ui-btn{
     margin: 15px 20px;
+}
+
+[name=pin],[name=new_pin],[name=r_pin], {
+  -moz-appearance:textfield;
 }

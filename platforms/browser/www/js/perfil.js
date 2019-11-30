@@ -12,7 +12,7 @@ function perfilRSP( xhr ) {
 		img = "../../img/default_usr.png";	
 	}
 
-	$(".mega-icon").append( '<img src="'+img+'" class="img-responsive">' );
+	$(".mega-icon").append( '<img src="'+img+'?'+(new Date().getSeconds())+'" class="img-responsive">' );
 }
 
 function cambiarFotoPerfil() {
@@ -22,7 +22,7 @@ function cambiarFotoPerfil() {
 		mostrarCargando();
 		var fd = new FormData();
 		var archivo = $("[name=imagen_perfil]")[0].files[0]; 	
-		fd.append('archivo', archivo);
+		fd.append('imagen', archivo);
 		fd.append('id', usuario.id );
 	
 		$.ajax({
@@ -34,7 +34,6 @@ function cambiarFotoPerfil() {
 			cache: false,
 			data: fd,
 			complete: function ( xhr, status ) {
-				console.log( status );
 				var resp = $.parseJSON( xhr.responseText );
 			
 				quitarCargando();

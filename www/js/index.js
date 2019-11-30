@@ -54,17 +54,17 @@ function AJAX( url, data , resp, metodo = "POST" ) {
 		data: data,
 		dataType: 'json',
 		success: function( xhr, status ) {
-			quitarCargando();
 			if( status == "success" ){
 				resp(xhr);
+				quitarCargando();
 			}else{
 				abrirModal( 1, 'Ocurrió un error, verifique los datos ingresados e intente nuevamente.' );
 			}
 			
 		},
 		error: function( xhr, status ) {
-			quitarCargando();
 			if( xhr.statusText == "error" ){
+				quitarCargando();
 				abrirModal( 1, 'Ocurrió un error, verifique los datos ingresados e intente nuevamente.' );
 			}
 		},

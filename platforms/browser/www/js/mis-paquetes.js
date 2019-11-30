@@ -19,13 +19,14 @@ function mispaquetesRSP( xhr ) {
 									<p></p>\
 	  							</div></div></div></div></div>";
 		});
-		$(".ui-page-active .lista-catalogo").append( html );
-		$(".elemento-lista").click(function() {
-			mostrarComprar = 0;
-			promo = $(this).attr('data-promo-id');
-			$.mobile.changePage('../promociones/promo-detalle.html');
-		})
+		$(".ui-page-active .lista-catalogo").append( html ).ready( function() {
+			$(".elemento-lista").click(function() {
+				mostrarComprar = 0;
+				promo = $(this).attr('data-promo-id');
+				$.mobile.changePage('../promociones/promo-detalle.html');
+			})
+		} );
 	}else{
-
+		$('.ui-page-active .lista-catalogo').append("<div style='margin: 5% 7%;'>ESTA CARTERA NO TIENE PAQUETES COMPRADOS POR LOS MOMENTOS</div>");
 	}
 }

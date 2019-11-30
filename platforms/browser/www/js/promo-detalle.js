@@ -28,7 +28,13 @@ function promodetalleRSP( xhr ) {
 				$(".rank").append( "<img src='../../img/estr_gf.png'>" );
 				rest--;
 			}
-		};
+		},
+		pago_sitio 	= function( ps, pr ) {
+			var p_s = ps == 1 ? "" : "in";
+			var p_r = pr == 1 ? "" : "in";
+			$(".pago-sitio").append( "<img class=img-responsive src='../../img/pago_sitio_"+p_s+"activo.png'>" )
+			$(".pago-sitio").append( "<img class=img-responsive src='../../img/pago_remoto_"+p_r+"activo.png'>" )
+		};;
 
 	$('[img-com]').css({'background-image':"url("+datos.comercio.logo+")"});
 	$('[tit-com]').html(datos.comercio.name);
@@ -54,6 +60,7 @@ function promodetalleRSP( xhr ) {
 	})
 	
 	fun_estr( datos.comercio.ranking );
+	pago_sitio( datos.comercio.pago_sitio, datos.comercio.retomte_paymenet );
 
 	promo_det = {
 		id: datos.id,

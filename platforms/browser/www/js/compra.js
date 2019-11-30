@@ -41,25 +41,27 @@ $(".numero").click(function() {
 })
 
 $("[name=pin]").change( function(e) {
-	console.log( $(this).val() );
 	var v = $(this).val();
 	if( v.length == 4 ){
 		if( promo_det.price > parseFloat($("[cant-monedas]").html()) ){
 			abrirModal( 1, "Saldo insuficiente. Por favor, elija otra cartera, otro paquete o recargue su saldo." );
 			$(".numero-clr").click();
 		}else{
-			mostrarCargando();
 			var envio = {
-				card: cards.length == 1 ? $("name=cartera").attr('data-val') : $("select[name=cartera-multi]").find("option:selected").attr('value'),
+				card: cards.length == 1 ? $("[name=cartera]").attr('data-val') : $("select[name=cartera-multi]").find("option:selected").attr('value'),
 				paquete: promo_det.id
 			}
-			AJAX( 'home', envio, compraRSP );	
+			AJAX( 'catalogo/comprando', envio, compraRSP );
 		}
 	}
 } )
 
 function compraRSP( xhr ) {
-	abrirModal( 2, "Deberia decir algo" );
-			$(".numero-clr").click();
-	quitarCargando();
+	$(".numero-clr").click();
+	if( xhr.result == "true" ){
+		abrirModal( 2, xhr.mensaje );
+		$.mobile.changePage( '../dashboard.html' );
+	}else{
+		abrirModal( 1, xhr.mensaje );	
+	}
 }

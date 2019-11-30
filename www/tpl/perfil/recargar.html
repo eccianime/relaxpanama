@@ -9,22 +9,22 @@
 			<h3 class="text-center">Wallet: <span data-serial></span></h3>
 			<div class="row center-xs">
 				<div class="col-xs-8"><div class="box">
-					<input type="text" name=tarjeta placeholder="Número de Tarjeta">
+					<input type="tel" name=tarjeta placeholder="Número de Tarjeta">
 				</div></div>
 				<div class="col-xs-4"><div class="box">
 					<img class="img-responsive visa_master" src="../../img/visa_master.png">
 				</div></div>
 				<div class="col-xs-6"><div class="box">
-					<input type="text" name=mes-vence placeholder="Vencimiento Mes">		
+					<input type="tel" name=mes-vence placeholder="Vencimiento Mes" maxlength="2">		
 				</div></div>
 				<div class="col-xs-6"><div class="box">
-					<input type="text" name=ano-vence placeholder="Vencimiento Año">			
+					<input type="tel" name=ano-vence placeholder="Vencimiento Año" maxlength="4">			
 				</div></div>
 				<div class="col-xs-12"><div class="box">
 					<input type="text" name=nombre placeholder="Nombre del Tarjetahabiente">				
 				</div></div>
 				<div class="col-xs-10"><div class="box">
-					<input type="text" name=cvv placeholder="CVV">		
+					<input type="tel" name=cvv placeholder="CVV" maxlength="3">		
 				</div></div>
 				<div class="col-xs-2"><div class="box">
 					<img class="img-responsive ayuda-moneda" src="../../img/interroga.png">
@@ -33,7 +33,7 @@
 					<img class="img-responsive ayuda-moneda" src="../../img/moneda.png">
 				</div></div>
 				<div class="col-xs-10"><div class="box">
-					<input type="text" name=monto placeholder="Monto">			
+					<input type="tel" name=monto placeholder="Monto" style="text-align: right;" value="0.00">			
 				</div></div>
 			</div>
 			<a data-role=button class="boton-verde" href="#" onclick="recargar()">PROCESAR</a>
