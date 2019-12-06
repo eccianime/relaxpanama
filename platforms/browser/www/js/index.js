@@ -84,7 +84,16 @@ function abrirModal( nro, mensaje, regresar = null ) {
 
 	if( regresar != null ){
 		$("#botonAtrasModal").attr('data-rel',"");
-		$("#botonAtrasModal").attr('onclick', 'window.history.back();window.history.back();' );
+		var onclk = "";
+		if( regresar == 1 ){
+			onclk = 'window.history.back();window.history.back();';
+		}else{
+			for (var i = 0; i < regresar; i++) {
+				onclk += 'window.history.back();';
+			}
+		}
+		$("#botonAtrasModal").attr('onclick', onclk );
+		
 	}else{
 		$("#botonAtrasModal").attr('data-rel',"back");
 		$("#botonAtrasModal").attr('onclick', "" );

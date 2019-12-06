@@ -33,6 +33,18 @@ $("[type=tel]").keyup(function(e) {
 	$(this).val( $(this).val().replace( /[^0-9]/g, "" ) );
 })
 
+/*$("[name=monto]").keyup(function() {
+	var v = $(this).val();
+	var nv = v.substring( v.length-1, v.length );
+	if( nv >= 0  ){
+		$(this).val( parseFloat($(this).val()).toFixed(2) );
+	}else{
+		$(this).val( "0.00" );
+	}
+}).focus(function() {
+	$(this).val("0.00");
+})*/
+
 function autorecargaRSP( xhr ) {
 	if( xhr.status == true ){
 		abrirModal( 2, xhr.mensaje, 1 );
@@ -40,3 +52,4 @@ function autorecargaRSP( xhr ) {
 		abrirModal( 1, xhr.mensaje );
 	}
 }
+

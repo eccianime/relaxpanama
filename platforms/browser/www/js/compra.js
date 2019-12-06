@@ -1,5 +1,5 @@
 if( cards.length == 1 ){
-	var html = "<input type='text' name='cartera' class='cartera-field' readonly='true' data-val="+cards[0].id+" value="+cards[0].serial+">";
+	var html = "<input style='display:none' type='text' name='cartera' class='cartera-field' readonly='true' data-val="+cards[0].id+" value="+cards[0].serial+">";
 	$("[cant-monedas]").html(cards[0].balance.toFixed(2));
 
 	$('[data-monedas]').after(html);
@@ -44,7 +44,7 @@ $("[name=pin]").change( function(e) {
 	var v = $(this).val();
 	if( v.length == 4 ){
 		if( promo_det.price > parseFloat($("[cant-monedas]").html()) ){
-			abrirModal( 1, "Saldo insuficiente. Por favor, elija otra cartera, otro paquete o recargue su saldo." );
+			abrirModal( 1, "Fondos insuficientes. Por favor, recargue su wallet." );
 			$(".numero-clr").click();
 		}else{
 			var envio = {
@@ -59,8 +59,7 @@ $("[name=pin]").change( function(e) {
 function compraRSP( xhr ) {
 	$(".numero-clr").click();
 	if( xhr.result == "true" ){
-		abrirModal( 2, xhr.mensaje );
-		$.mobile.changePage( '../dashboard.html' );
+		abrirModal( 2, xhr.mensaje, 4);
 	}else{
 		abrirModal( 1, xhr.mensaje );	
 	}
