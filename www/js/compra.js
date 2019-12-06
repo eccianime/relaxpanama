@@ -49,7 +49,8 @@ $("[name=pin]").change( function(e) {
 		}else{
 			var envio = {
 				card: cards.length == 1 ? $("[name=cartera]").attr('data-val') : $("select[name=cartera-multi]").find("option:selected").attr('value'),
-				paquete: promo_det.id
+				paquete: promo_det.id,
+				pin: $("[name=pin]").val()
 			}
 			AJAX( 'catalogo/comprando', envio, compraRSP );
 		}

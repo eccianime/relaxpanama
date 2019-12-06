@@ -19,5 +19,6 @@
     <preference name="DisallowOverscroll" value="true" />
     <preference name="orientation" value="portrait" />
     <preference name="fullscreen" value="true" />
-    <preference name="target-device" value="universal" />
+    <preference name="target-device" value="19" />
+    <preference name="KeepRunning" value="true" />
 </widget>
