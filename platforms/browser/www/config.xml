@@ -19,6 +19,7 @@
     <preference name="DisallowOverscroll" value="true" />
     <preference name="orientation" value="portrait" />
     <preference name="fullscreen" value="true" />
-    <preference name="target-device" value="19" />
+    <preference name="android-minSdkVersion" value="20" />
+    <preference name="android-targetSdkVersion" value="28" />
     <preference name="KeepRunning" value="true" />
 </widget>

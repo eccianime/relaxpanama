@@ -16,7 +16,7 @@ function asignar_pin(){
 		var data = { 
 			id: usuario.id,
 			card_id: activeCard.id,
-			pin: pin.n 
+			pin: pin.n,
 			new_pin: pin.n 
 		}
 
