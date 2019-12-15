@@ -33,17 +33,13 @@ $("[type=tel]").keyup(function(e) {
 	$(this).val( $(this).val().replace( /[^0-9]/g, "" ) );
 })
 
-/*$("[name=monto]").keyup(function() {
-	var v = $(this).val();
-	var nv = v.substring( v.length-1, v.length );
-	if( nv >= 0  ){
-		$(this).val( parseFloat($(this).val()).toFixed(2) );
-	}else{
-		$(this).val( "0.00" );
-	}
-}).focus(function() {
-	$(this).val("0.00");
-})*/
+$("[name=monto]")
+	.val("")
+	.val("0.00")
+	.mask('00000.00', {reverse: true})
+	.focus(function() {
+		$(this).val("");
+	});
 
 function autorecargaRSP( xhr ) {
 	if( xhr.status == true ){
