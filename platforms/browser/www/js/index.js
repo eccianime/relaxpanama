@@ -120,10 +120,6 @@ function quitarCargando() {
 	$('html').css({overflow: 'scroll'});
 }
 
-function rspBase( datos ) {
-	abrirModal( datos.nro, datos.msg, datos.reg );	
-}
-
 function errorConn() {
 	$(".splash").remove();
 	abrirModal( 1, "Disculpe, hubo un error al conectar. Intente nuevamente o contacte al administrador del sistema." );
