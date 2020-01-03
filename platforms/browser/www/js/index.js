@@ -31,11 +31,7 @@ function PGcargado(){
 	$("#modalGeneral").popup();
 	$("#modalSalir").popup();
 	
-
-	setTimeout( function () {
-		$(".splash").fadeOut();
-	}, 3000);
-
+	$(".splash").delay(3000).fadeOut();
 	$("input[name=email]").keydown(function( e ) {
 		if( e.which == 32 ){ // previene el espacio
 			e.preventDefault();

@@ -43,22 +43,17 @@ function promodetalleRSP( xhr ) {
  	if( datos.comercio.email != "" ){           		$("[cont-com]").append( "<a class='ui-btn' style='background-image: url(../../img/dtl_cor.png);' href=# data-href='mailto:"+datos.comercio.email+"'>"+datos.comercio.email+"</span>" );											}
 	if( datos.comercio.geolocalizacion != "," ){		$("[cont-com]").append( "<a class='ui-btn' style='background-image: url(../../img/dtl_loc.png);' href=# data-href='http://maps.google.com/?q="+datos.comercio.geolocalizacion+"'>Dirección</span>" );	}
 
-	$("[cont-com] a").each( function(){ 
-		$(this).click(function() {
-			window.open( $(this).attr('data-href'), "_system" );
-		})
-	})
-
 	if( datos.comercio.facebook != "" ){			$(".soc").append( html_stack("facebook", datos.comercio.facebook) );					}
 	if( datos.comercio.twitter != "" ){				$(".soc").append( html_stack("twitter", datos.comercio.twitter) );					}
 	if( datos.comercio.instagram != "" ){			$(".soc").append( html_stack("instagram", "https://www.instragram.com/"+datos.comercio.instagram.substring(1, datos.comercio.instagram.lenght ) ) );		}
-
-	$(".soc a").each( function(){ 
-		$(this).click(function() {
-			window.open( $(this).attr('data-href'), "_system" );
+	
+	$("[cont-com] a, .soc a").each( function(){ 
+		var btn = $(this);
+		btn.click(function() {
+			window.open( btn.attr('data-href'), "_system" );
 		})
 	})
-	
+
 	fun_estr( datos.comercio.ranking );
 	pago_sitio( datos.comercio.pago_sitio, datos.comercio.retomte_paymenet );
 

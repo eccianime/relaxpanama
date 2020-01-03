@@ -13,7 +13,7 @@ function homeRSP( xhr ) {
 
 		html +="<li><div class='carta' data-carta="+cards[i].id+">\
 			<img class='img-responsive' src='../img/disponible.png'>\
-			<div class='disponibles'>"+cards[i].balance.toFixed(2)+"</div>\
+			<div class='disponibles'>"+cards[i].balance+"</div>\
 			<div class='cartera'>\
 				<div class='punteado row'>\
 					<div class='xs-6'>\

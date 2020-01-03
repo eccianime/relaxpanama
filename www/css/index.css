@@ -18,6 +18,10 @@
 	font-family: "Ubuntu Regular";
 }
 
+.ui-mobile .ui-page {
+    min-height: 100%;
+}
+
 .loader{
 	position: absolute;
 	width: 100%;
@@ -821,10 +825,14 @@ textarea.ui-input-text::placeholder {
 
 .bloque-mov-izq{
 	float: left;
+	max-width: 55%;
 }
 
 .bloque-mov-izq p{
   	margin: 13px 0px;
+  	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
 }
 
 .bloque-mov-der{
