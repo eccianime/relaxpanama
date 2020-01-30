@@ -1,13 +1,43 @@
 AJAX( 'home', {id: usuario.id}, homeRSP );
 
 var cards,
-	activeCard;
+	activeCard,
+	cobros;
 var mostrarComprar = 1;
+
 
 function homeRSP( xhr ) {
 	$("[name=nombreUsuario]").html( xhr.user.name );
 	var html = "";
 	cards = xhr.cards;
+	cobros = xhr.cobros;
+
+	if( cobros.length > 0 ){
+		var htmlPP = "<div class='label-pago-pend'>PAGO PENDIENTE</div><a href='compra/compraDirect.html' data-role='button' class='ui-btn boton-verde boton-pago-pend'>PAGAR</a>";
+		$("#pagoPend").addClass('bloque-pago-pend').append( htmlPP );
+		var changeTooltipPosition = function(event) {
+			var tooltipX = event.pageX - 8;
+			var tooltipY = event.pageY + 8;
+			$('div.tooltip').css({top: tooltipY, left: tooltipX});
+		};
+
+		var showTooltip = function(event) {
+		  $('div.tooltip').remove();
+		  $('#pagoPend').prepend('<div class="tooltip">Tiene un pago pendiente del comercio <b>'+cobros[0].nombre+'.</b><br/>Haga click en <b>PAGAR</b> para continuar. </div>');
+		  changeTooltipPosition(event);
+		};
+
+		var hideTooltip = function() {
+		   $('div.tooltip').remove();
+		};
+
+		$("#pagoPend").bind({
+		   mousemove : changeTooltipPosition,
+		   mouseenter : showTooltip,
+		   mouseleave: hideTooltip
+		});
+	}
+
 	$.each( cards, function( i ) {
 		var htmlCoA = cards[i].pin == "cambiar" ? "cambiar" : "asignar";
 

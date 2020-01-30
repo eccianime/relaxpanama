@@ -36,7 +36,7 @@ $("[type=tel]").keyup(function(e) {
 $("[name=monto]")
 	.val("")
 	.val("0.00")
-	.mask('00000.00', {reverse: true})
+	.mask('00000.00')
 	.focus(function() {
 		$(this).val("");
 	});

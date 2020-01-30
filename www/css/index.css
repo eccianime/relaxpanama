@@ -207,6 +207,16 @@ textarea.ui-input-text::placeholder {
 	bottom: 20px;
 }
 
+.tooltip{
+	background-color: white;
+	border-radius: .3125em;
+	position: fixed;
+	width: 250px;
+	padding: 5px;
+	z-index: 9998;
+	font-size: 12px;
+}
+
 /*----------------- DASHBOARD -------------------*/
 
 .ui-header .ui-btn-right, .ui-header .ui-btn-left{
@@ -344,6 +354,25 @@ textarea.ui-input-text::placeholder {
 .carta{
 	margin: 20px 10%;
 	min-width: 80%;
+}
+
+.bloque-pago-pend{
+	height: 40px;
+	background-color: gray;
+	margin: 1em -1em 0em;
+	padding: 20px 20px 0px;
+	text-align: center;	
+}
+
+.label-pago-pend{
+	color: white;
+	font-weight: 900;
+	display: inline-block;
+	margin-right: 30px;
+}
+
+.boton-pago-pend{
+	display: inline;
 }
 
 /*----------------- BLOG -------------------*/
@@ -845,6 +874,33 @@ textarea.ui-input-text::placeholder {
 	background-size: contain;
 	padding: 5px 0px 5px 35px;
 	background-repeat: no-repeat;
+}
+
+.pp-com-mont{
+	display: flex;
+	flex: 1;
+}
+
+.pp-com-mont span{
+	padding-top: 5px;
+	padding-bottom: 5px;	
+	display: block;
+}
+
+.pp-com-mont div:first-child{
+	flex: .4; 
+	color: rgb(57,213,44);
+}
+
+.pp-com-mont div:last-child{
+	flex: .6;
+}
+
+.precio{
+	background-image: url(../img/moneda.png);
+	background-size: contain;
+	background-repeat: no-repeat;
+	padding: 3px 0px 3px 40px;
 }
 
  /*----------------- RECARGAR -------------------*/
