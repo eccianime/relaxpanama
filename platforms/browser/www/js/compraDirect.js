@@ -1,6 +1,6 @@
 $(function() {
 	$("[data-comercio]").html(cobros[0].nombre);
-	$("[data-precio]").html(cobros[0].monto.toFixed(2));
+	$("[data-precio]").html(cobros[0].monto);
 })
 
 $(".numero").click(function() {
@@ -56,7 +56,7 @@ function aceptarPago(){
 function compraRSP( xhr ) {
 	$(".numero-clr").click();
 	if( xhr.status == true ){
-		abrirModal( 2, xhr.mensaje, 4);
+		abrirModal( 2, xhr.mensaje, 1);
 	}else{
 		abrirModal( 1, xhr.mensaje );	
 	}
