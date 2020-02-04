@@ -112,6 +112,18 @@ function promodetalleRSP( xhr ) {
 	$('[term-promo]').html(datos.terms);
 	$('[prec-promo]').html(datos.price);
 
+	if( datos.restrictions != null ){
+		$('[data-extra]')
+			.after('<span restri-promo>'+datos.restrictions+'</span>')
+			.after('<p class="text-green">Datos Importantes</p>');
+	}
+
+	if( datos.policies != null ){
+		$('[data-extra]')
+			.after('<span polici-promo>'+datos.policies+'</span>')
+			.after('<p class="text-green">Políticas de Cancelación</p>');
+	}
+
 	if( mostrarComprar == 0 ){
 		$(".mostrarComprar").css({display:"none"});
 	}

@@ -601,7 +601,7 @@ textarea.ui-input-text::placeholder {
 	color: white;
 }
 
-[desc-promo], [term-promo]{
+[desc-promo], [term-promo], [polici-promo], [restri-promo]{
 	font-size: .8em;
 }
 

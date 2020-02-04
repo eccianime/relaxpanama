@@ -33,14 +33,35 @@
 					<img class="img-responsive ayuda-moneda" src="../../img/moneda.png">
 				</div></div>
 				<div class="col-xs-10"><div class="box">
-					<input type="tel" name=monto placeholder="Monto" style="text-align: right;" value="0.00">			
+					<input type="tel" name=monto placeholder="Monto" style="text-align: right;" readonly="true">
 				</div></div>
+				<div class="numeros">
+					<div>
+						<div class="numero">1</div>
+						<div class="numero">2</div>
+						<div class="numero">3</div>
+					</div>
+					<div>
+						<div class="numero">4</div>
+						<div class="numero">5</div>
+						<div class="numero">6</div>
+					</div>
+					<div>
+						<div class="numero">7</div>
+						<div class="numero">8</div>
+						<div class="numero">9</div>
+					</div>
+					<div>
+						<div class="numero numero-disabled numero-clr">CLR</div>
+						<div class="numero">0</div>
+						<div class="numero numero-disabled numero-back"><i class="fa fa-arrow-left"></i></div>
+					</div>
+				</div>
 			</div>
 			<a data-role=button class="boton-verde" href="#" onclick="recargar()">PROCESAR</a>
 		</div>
 
 		
 	</div>
-	<script src="../../js/lib/jquery.mask.min.js"></script>
 	<script src="../../js/recargar.js"></script>
 </section>
